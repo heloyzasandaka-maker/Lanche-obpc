@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Burguer OBPC | OBPC Uvaranas</title>
+
+    <meta
+        name="description"
+        content="Faça seu pedido do Burguer OBPC e contribua com a reforma da Igreja OBPC Uvaranas."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+    <div class="logo-area">
+
+        <div class="logo-icon">
+            ⛪
+        </div>
+
+        <div class="logo-text">
+
+            <h1>OBPC</h1>
+
+            <span>UVARANAS</span>
+
+        </div>
+
+    </div>
+
+
+    <div class="header-label">
+        🍔 AÇÃO BENEFICENTE
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+    <section class="hero">
+
+        <span class="hero-label">
+            UMA DELICIOSA FORMA DE AJUDAR
+        </span>
+
+        <h2>
+
+            BURGUER
+
+            <strong>OBPC</strong>
+
+        </h2>
+
+        <p>
+            Pedido online • OBPC Uvaranas • Reforma da Igreja
+        </p>
+
+    </section>
+
+
+
+    <section class="order-card">
+
+
+        <div class="product-section">
+
+
+            <div class="product-image">
+
+                <span class="featured">
+                    ⭐ ESPECIAL
+                </span>
+
+                <img
+                    src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=1200&q=90"
+                    alt="Burguer OBPC"
+                >
+
+            </div>
+
+
+
+            <div class="product-info">
+
+                <span class="category">
+                    BURGUER ARTESANAL
+                </span>
+
+
+                <h2>
+
+                    BURGUER
+
+                    <strong>OBPC</strong>
+
+                </h2>
+
+
+                <p class="description">
+
+                    Um delicioso burguer preparado especialmente
+                    para nossa ação em benefício da reforma
+                    da Igreja OBPC Uvaranas.
+
+                </p>
+
+
+                <div class="product-price">
+
+                    <span>R$</span>
+
+                    15,00
+
+                </div>
+
+
+                <div class="quantity-area">
+
+                    <span class="quantity-label">
+                        QUANTIDADE
+                    </span>
+
+
+                    <div class="quantity">
+
+                        <button
+                            type="button"
+                            id="btnMenos"
+                        >
+                            −
+                        </button>
+
+
+                        <span id="quantidade">
+                            1
+                        </span>
+
+
+                        <button
+                            type="button"
+                            id="btnMais"
+                        >
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="purpose">
+
+                    <div class="purpose-icon">
+                        ❤️
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            VOCÊ TAMBÉM ESTÁ AJUDANDO
+                        </strong>
+
+                        <p>
+
+                            Toda contribuição ajuda nossa
+                            igreja em sua reforma.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="form-section">
+
+
+            <div class="form-header">
+
+                <div class="form-icon">
+                    📝
+                </div>
+
+                <div>
+
+                    <span>SEUS DADOS</span>
+
+                    <h2>
+                        Faça seu pedido
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <label for="nome">
+                Seu nome *
+            </label>
+
+            <input
+                type="text"
+                id="nome"
+                placeholder="Digite seu nome"
+                autocomplete="name"
+            >
+
+
+
+            <label for="telefone">
+                Seu WhatsApp *
+            </label>
+
+            <input
+                type="tel"
+                id="telefone"
+                placeholder="(42) 99999-9999"
+                autocomplete="tel"
+            >
+
+
+
+            <label for="tipoEntrega">
+                Como deseja receber seu pedido? *
+            </label>
+
+            <select id="tipoEntrega">
+
+                <option value="">
+                    Selecione uma opção
+                </option>
+
+                <option value="Entrega">
+                    🚗 Entrega
+                </option>
+
+                <option value="Retirada na igreja">
+                    ⛪ Retirada na igreja
+                </option>
+
+            </select>
+
+
+
+            <div id="dadosEntrega" class="dados-entrega">
+
+
+                <label for="endereco">
+                    Endereço para entrega *
+                </label>
+
+                <input
+                    type="text"
+                    id="endereco"
+                    placeholder="Rua, número e bairro"
+                    autocomplete="street-address"
+                >
+
+
+                <label for="referencia">
+                    Ponto de referência *
+                </label>
+
+                <input
+                    type="text"
+                    id="referencia"
+                    placeholder="Ex.: próximo à escola, mercado..."
+                >
+
+            </div>
+
+
+
+            <label for="retirar">
+                Deseja retirar algum ingrediente?
+            </label>
+
+            <textarea
+                id="retirar"
+                placeholder="Ex.: sem cebola, sem tomate... (opcional)"
+            ></textarea>
+
+
+
+            <label for="pagamento">
+                Forma de pagamento *
+            </label>
+
+            <select id="pagamento">
+
+                <option value="">
+                    Selecione uma opção
+                </option>
+
+                <option value="PIX">
+                    📲 PIX
+                </option>
+
+                <option value="Cartão">
+                    💳 Cartão
+                </option>
+
+                <option value="Dinheiro">
+                    💵 Dinheiro
+                </option>
+
+            </select>
+
+
+
+            <div
+                id="pixInfo"
+                class="pix-info"
+            >
+
+                <strong>
+                    📲 PAGAMENTO VIA PIX
+                </strong>
+
+                <p>
+                    Para confirmar seu pedido:
+                </p>
+
+                <div class="pix-number">
+                    (42) 99930-4153
+                </div>
+
+                <p>
+                    Wagner Notargiacomo
+                </p>
+
+                <small>
+                    Após realizar o pagamento, envie o comprovante pelo WhatsApp.
+                </small>
+
+            </div>
+
+
+
+            <div class="summary">
+
+                <div class="summary-header">
+                    🛒 RESUMO DO PEDIDO
+                </div>
+
+
+                <div class="summary-item">
+
+                    <span>
+                        Burguer OBPC
+                    </span>
+
+                    <strong>
+                        R$ 15,00
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-item">
+
+                    <span>
+                        Quantidade:
+                        <span id="resumoQuantidade">
+                            1
+                        </span>
+                    </span>
+
+                    <strong id="resumoSubtotal">
+                        R$ 15,00
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-total">
+
+                    <span>
+                        TOTAL
+                    </span>
+
+                    <strong id="total">
+                        R$ 15,00
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <button
+                type="button"
+                class="btn-whatsapp"
+                id="btnWhatsApp"
+            >
+
+                <span class="whatsapp-icon">
+                    📲
+                </span>
+
+                <span>
+
+                    ENVIAR PEDIDO PELO WHATSAPP
+
+                    <small>
+                        Seu pedido será enviado diretamente para nós
+                    </small>
+
+                </span>
+
+            </button>
+
+
+            <div class="security">
+
+                🔒 Seus dados serão usados somente
+                para identificação do pedido.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="info-section">
+
+
+        <div class="info-card">
+
+            <div class="info-icon">
+                🍔
+            </div>
+
+            <div>
+
+                <strong>PRODUTO</strong>
+
+                <p>
+                    Burguer OBPC
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="info-card">
+
+            <div class="info-icon">
+                💰
+            </div>
+
+            <div>
+
+                <strong>VALOR</strong>
+
+                <p>
+                    R$ 15,00 cada
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="info-card">
+
+            <div class="info-icon">
+                ❤️
+            </div>
+
+            <div>
+
+                <strong>DESTINO</strong>
+
+                <p>
+                    Reforma da igreja
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <section class="address">
+
+        <span>
+            📍
+        </span>
+
+        <div>
+
+            <strong>
+                OBPC UVARANAS
+            </strong>
+
+            <p>
+                Ponta Grossa - PR
+            </p>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<footer>
+
+    <div class="footer-logo">
+        🍔
+    </div>
+
+    <p>
+        OBPC UVARANAS
+    </p>
+
+    <span>
+        Uma ação em benefício da reforma da igreja ❤️
+    </span>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
