@@ -7,16 +7,15 @@
    CONFIGURAÇÕES
 ========================================================= */
 
-// Mesmo número do PIX e do WhatsApp que recebe os pedidos
 const WHATSAPP = "5542999304153";
 
-// Preço do Burguer OBPC
 const PRECO_HAMBURGUER = 15;
 
+const PRECO_REFRIGERANTE = 3;
 
-// Quantidade inicial
+const TAXA_ENTREGA = 5;
+
 let quantidade = 1;
-
 
 
 /* =========================================================
@@ -32,8 +31,14 @@ const resumoQuantidade =
 const resumoSubtotal =
     document.getElementById("resumoSubtotal");
 
+const resumoRefrigerante =
+    document.getElementById("resumoRefrigerante");
+
 const totalElemento =
     document.getElementById("total");
+
+const linhaTaxaEntrega =
+    document.getElementById("linhaTaxaEntrega");
 
 const btnMais =
     document.getElementById("btnMais");
@@ -50,12 +55,14 @@ const tipoEntrega =
 const dadosEntrega =
     document.getElementById("dadosEntrega");
 
+const refrigerante =
+    document.getElementById("refrigerante");
+
 const pagamento =
     document.getElementById("pagamento");
 
 const pixInfo =
     document.getElementById("pixInfo");
-
 
 
 /* =========================================================
@@ -75,6 +82,31 @@ function formatarMoeda(valor) {
 }
 
 
+/* =========================================================
+   CALCULAR TOTAL
+========================================================= */
+
+function calcularTotal() {
+
+    const valorHamburguer =
+        PRECO_HAMBURGUER * quantidade;
+
+    const valorRefrigerante =
+        Number(refrigerante.value);
+
+    const taxaEntrega =
+        tipoEntrega.value === "Entrega"
+            ? TAXA_ENTREGA
+            : 0;
+
+    return (
+        valorHamburguer +
+        valorRefrigerante +
+        taxaEntrega
+    );
+
+}
+
 
 /* =========================================================
    ATUALIZAR RESUMO
@@ -82,8 +114,21 @@ function formatarMoeda(valor) {
 
 function atualizarResumo() {
 
-    const total =
+    const subtotal =
         PRECO_HAMBURGUER * quantidade;
+
+    const valorRefrigerante =
+        Number(refrigerante.value);
+
+    const taxaEntrega =
+        tipoEntrega.value === "Entrega"
+            ? TAXA_ENTREGA
+            : 0;
+
+    const total =
+        subtotal +
+        valorRefrigerante +
+        taxaEntrega;
 
 
     quantidadeElemento.textContent =
@@ -95,14 +140,30 @@ function atualizarResumo() {
 
 
     resumoSubtotal.textContent =
-        formatarMoeda(total);
+        formatarMoeda(subtotal);
+
+
+    resumoRefrigerante.textContent =
+        formatarMoeda(valorRefrigerante);
 
 
     totalElemento.textContent =
         formatarMoeda(total);
 
-}
 
+    if (tipoEntrega.value === "Entrega") {
+
+        linhaTaxaEntrega.style.display =
+            "flex";
+
+    } else {
+
+        linhaTaxaEntrega.style.display =
+            "none";
+
+    }
+
+}
 
 
 /* =========================================================
@@ -119,7 +180,6 @@ btnMais.addEventListener(
 
     }
 );
-
 
 
 /* =========================================================
@@ -141,6 +201,19 @@ btnMenos.addEventListener(
     }
 );
 
+
+/* =========================================================
+   REFRIGERANTE
+========================================================= */
+
+refrigerante.addEventListener(
+    "change",
+    function () {
+
+        atualizarResumo();
+
+    }
+);
 
 
 /* =========================================================
@@ -166,9 +239,10 @@ tipoEntrega.addEventListener(
 
         }
 
+        atualizarResumo();
+
     }
 );
-
 
 
 /* =========================================================
@@ -198,7 +272,6 @@ pagamento.addEventListener(
 );
 
 
-
 /* =========================================================
    ENVIAR PEDIDO
 ========================================================= */
@@ -209,7 +282,7 @@ btnWhatsApp.addEventListener(
 
 
         /* ---------------------------------------------
-           DADOS
+           DADOS DO CLIENTE
         --------------------------------------------- */
 
         const nome =
@@ -222,13 +295,6 @@ btnWhatsApp.addEventListener(
         const telefone =
             document
                 .getElementById("telefone")
-                .value
-                .trim();
-
-
-        const retiradaIngredientes =
-            document
-                .getElementById("retirar")
                 .value
                 .trim();
 
@@ -255,6 +321,32 @@ btnWhatsApp.addEventListener(
             pagamento.value;
 
 
+        const valorRefrigerante =
+            Number(refrigerante.value);
+
+
+        const nomeRefrigerante =
+            refrigerante.value === "3"
+                ? "Refrigerante mini 200 ml"
+                : "Não quero";
+
+
+        const taxaEntrega =
+            tipo === "Entrega"
+                ? TAXA_ENTREGA
+                : 0;
+
+
+        const subtotal =
+            PRECO_HAMBURGUER *
+            quantidade;
+
+
+        const total =
+            subtotal +
+            valorRefrigerante +
+            taxaEntrega;
+
 
         /* ---------------------------------------------
            VALIDAR NOME
@@ -273,7 +365,6 @@ btnWhatsApp.addEventListener(
             return;
 
         }
-
 
 
         /* ---------------------------------------------
@@ -295,7 +386,6 @@ btnWhatsApp.addEventListener(
         }
 
 
-
         /* ---------------------------------------------
            VALIDAR ENTREGA / RETIRADA
         --------------------------------------------- */
@@ -311,7 +401,6 @@ btnWhatsApp.addEventListener(
             return;
 
         }
-
 
 
         /* ---------------------------------------------
@@ -354,7 +443,6 @@ btnWhatsApp.addEventListener(
         }
 
 
-
         /* ---------------------------------------------
            VALIDAR PAGAMENTO
         --------------------------------------------- */
@@ -370,17 +458,6 @@ btnWhatsApp.addEventListener(
             return;
 
         }
-
-
-
-        /* ---------------------------------------------
-           CALCULAR TOTAL
-        --------------------------------------------- */
-
-        const total =
-            PRECO_HAMBURGUER *
-            quantidade;
-
 
 
         /* ---------------------------------------------
@@ -414,7 +491,6 @@ btnWhatsApp.addEventListener(
             "\n\n";
 
 
-
         /* ---------------------------------------------
            CLIENTE
         --------------------------------------------- */
@@ -431,7 +507,6 @@ btnWhatsApp.addEventListener(
         mensagem +=
             "📱 *WhatsApp:* " +
             telefone;
-
 
 
         /* ---------------------------------------------
@@ -475,14 +550,25 @@ btnWhatsApp.addEventListener(
 
 
         mensagem +=
-            "\n";
+            "\n\n";
 
 
         mensagem +=
-            "💰 *TOTAL: " +
-            formatarMoeda(total) +
-            "*";
+            "🥤 *Refrigerante mini 200 ml:* " +
+            nomeRefrigerante;
 
+
+        if (
+            valorRefrigerante > 0
+        ) {
+
+            mensagem +=
+                " - " +
+                formatarMoeda(
+                    valorRefrigerante
+                );
+
+        }
 
 
         /* ---------------------------------------------
@@ -503,7 +589,6 @@ btnWhatsApp.addEventListener(
 
         mensagem +=
             tipo;
-
 
 
         if (
@@ -527,35 +612,77 @@ btnWhatsApp.addEventListener(
                 "🧭 *Ponto de referência:* " +
                 referencia;
 
-        }
-
-
-
-        /* ---------------------------------------------
-           INGREDIENTES
-        --------------------------------------------- */
-
-        if (
-            retiradaIngredientes !== ""
-        ) {
-
-            mensagem +=
-                "\n\n";
-
-
-            mensagem +=
-                "🚫 *Deseja retirar:*";
-
 
             mensagem +=
                 "\n";
 
 
             mensagem +=
-                retiradaIngredientes;
+                "🚗 *Taxa de entrega:* " +
+                formatarMoeda(
+                    TAXA_ENTREGA
+                );
 
         }
 
+
+        /* ---------------------------------------------
+           VALORES
+        --------------------------------------------- */
+
+        mensagem +=
+            "\n\n";
+
+
+        mensagem +=
+            "🧾 *SUBTOTAL:* " +
+            formatarMoeda(
+                subtotal
+            );
+
+
+        if (
+            valorRefrigerante > 0
+        ) {
+
+            mensagem +=
+                "\n";
+
+
+            mensagem +=
+                "🥤 *Refrigerante:* " +
+                formatarMoeda(
+                    valorRefrigerante
+                );
+
+        }
+
+
+        if (
+            taxaEntrega > 0
+        ) {
+
+            mensagem +=
+                "\n";
+
+
+            mensagem +=
+                "🚗 *Entrega:* " +
+                formatarMoeda(
+                    taxaEntrega
+                );
+
+        }
+
+
+        mensagem +=
+            "\n\n";
+
+
+        mensagem +=
+            "💰 *TOTAL: " +
+            formatarMoeda(total) +
+            "*";
 
 
         /* ---------------------------------------------
@@ -578,9 +705,9 @@ btnWhatsApp.addEventListener(
             formaPagamento;
 
 
-
         if (
-            formaPagamento === "PIX"
+            formaPagamento ===
+            "PIX"
         ) {
 
             mensagem +=
@@ -609,7 +736,6 @@ btnWhatsApp.addEventListener(
         }
 
 
-
         /* ---------------------------------------------
            FINAL
         --------------------------------------------- */
@@ -630,7 +756,6 @@ btnWhatsApp.addEventListener(
             "⛪ *OBPC Uvaranas*";
 
 
-
         /* ---------------------------------------------
            CODIFICAR
         --------------------------------------------- */
@@ -639,7 +764,6 @@ btnWhatsApp.addEventListener(
             encodeURIComponent(
                 mensagem
             );
-
 
 
         /* ---------------------------------------------
@@ -653,7 +777,6 @@ btnWhatsApp.addEventListener(
             mensagemCodificada;
 
 
-
         /* ---------------------------------------------
            ABRIR WHATSAPP
         --------------------------------------------- */
@@ -663,7 +786,6 @@ btnWhatsApp.addEventListener(
 
     }
 );
-
 
 
 /* =========================================================
@@ -738,7 +860,6 @@ telefoneInput.addEventListener(
 
     }
 );
-
 
 
 /* =========================================================
