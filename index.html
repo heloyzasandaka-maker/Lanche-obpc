@@ -1,16 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Burguer OBPC | OBPC Uvaranas</title>
 
+    <meta
+        name="description"
+        content="Faça seu pedido do Burguer OBPC e contribua com a reforma da Igreja OBPC Uvaranas."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
     <link rel="stylesheet" href="./style.css">
 </head>
 
+<body>
+
+<header class="header">
+
+    <div class="logo-area">
+
+        <div class="logo-icon">
+            ⛪
+        </div>
+
+        <div class="logo-text">
+            <h1>OBPC</h1>
+            <span>UVARANAS</span>
+        </div>
+
+    </div>
+
+    <div class="header-label">
+        🍔 AÇÃO BENEFICENTE
+    </div>
+
+</header>
 
 
 <main class="container">
-
 
     <section class="hero">
 
@@ -19,11 +56,8 @@
         </span>
 
         <h2>
-
             BURGUER
-
             <strong>OBPC</strong>
-
         </h2>
 
         <p>
@@ -33,12 +67,9 @@
     </section>
 
 
-
     <section class="order-card">
 
-
         <div class="product-section">
-
 
             <div class="product-image">
 
@@ -54,38 +85,26 @@
             </div>
 
 
-
             <div class="product-info">
 
                 <span class="category">
                     BURGUER ARTESANAL
                 </span>
 
-
                 <h2>
-
                     BURGUER
-
                     <strong>OBPC</strong>
-
                 </h2>
 
-
                 <p class="description">
-
                     Um delicioso burguer preparado especialmente
                     para nossa ação em benefício da reforma
                     da Igreja OBPC Uvaranas.
-
                 </p>
 
-
                 <div class="product-price">
-
                     <span>R$</span>
-
                     15,00
-
                 </div>
 
 
@@ -95,26 +114,17 @@
                         QUANTIDADE
                     </span>
 
-
                     <div class="quantity">
 
-                        <button
-                            type="button"
-                            id="btnMenos"
-                        >
+                        <button type="button" id="btnMenos">
                             −
                         </button>
-
 
                         <span id="quantidade">
                             1
                         </span>
 
-
-                        <button
-                            type="button"
-                            id="btnMais"
-                        >
+                        <button type="button" id="btnMais">
                             +
                         </button>
 
@@ -136,10 +146,8 @@
                         </strong>
 
                         <p>
-
                             Toda contribuição ajuda nossa
                             igreja em sua reforma.
-
                         </p>
 
                     </div>
@@ -151,9 +159,7 @@
         </div>
 
 
-
         <div class="form-section">
-
 
             <div class="form-header">
 
@@ -174,7 +180,6 @@
             </div>
 
 
-
             <label for="nome">
                 Seu nome *
             </label>
@@ -185,7 +190,6 @@
                 placeholder="Digite seu nome"
                 autocomplete="name"
             >
-
 
 
             <label for="telefone">
@@ -199,6 +203,22 @@
                 autocomplete="tel"
             >
 
+
+            <label for="refrigerante">
+                Refrigerante mini 200 ml
+            </label>
+
+            <select id="refrigerante">
+
+                <option value="0">
+                    Não quero
+                </option>
+
+                <option value="3">
+                    🥤 Refrigerante mini 200 ml - R$ 3,00
+                </option>
+
+            </select>
 
 
             <label for="tipoEntrega">
@@ -222,9 +242,10 @@
             </select>
 
 
-
-            <div id="dadosEntrega" class="dados-entrega">
-
+            <div
+                id="dadosEntrega"
+                class="dados-entrega"
+            >
 
                 <label for="endereco">
                     Endereço para entrega *
@@ -251,18 +272,6 @@
             </div>
 
 
-
-            <label for="retirar">
-                Deseja retirar algum ingrediente?
-            </label>
-
-            <textarea
-                id="retirar"
-                placeholder="Ex.: sem cebola, sem tomate... (opcional)"
-            ></textarea>
-
-
-
             <label for="pagamento">
                 Forma de pagamento *
             </label>
@@ -286,7 +295,6 @@
                 </option>
 
             </select>
-
 
 
             <div
@@ -315,7 +323,6 @@
                 </small>
 
             </div>
-
 
 
             <div class="summary">
@@ -354,6 +361,36 @@
                 </div>
 
 
+                <div class="summary-item">
+
+                    <span>
+                        🥤 Refrigerante
+                    </span>
+
+                    <strong id="resumoRefrigerante">
+                        R$ 0,00
+                    </strong>
+
+                </div>
+
+
+                <div
+                    class="summary-item"
+                    id="linhaTaxaEntrega"
+                    style="display:none;"
+                >
+
+                    <span>
+                        🚗 Taxa de entrega
+                    </span>
+
+                    <strong>
+                        R$ 5,00
+                    </strong>
+
+                </div>
+
+
                 <div class="summary-total">
 
                     <span>
@@ -367,7 +404,6 @@
                 </div>
 
             </div>
-
 
 
             <button
@@ -405,9 +441,7 @@
     </section>
 
 
-
     <section class="info-section">
-
 
         <div class="info-card">
 
@@ -417,7 +451,9 @@
 
             <div>
 
-                <strong>PRODUTO</strong>
+                <strong>
+                    PRODUTO
+                </strong>
 
                 <p>
                     Burguer OBPC
@@ -428,7 +464,6 @@
         </div>
 
 
-
         <div class="info-card">
 
             <div class="info-icon">
@@ -437,7 +472,9 @@
 
             <div>
 
-                <strong>VALOR</strong>
+                <strong>
+                    VALOR
+                </strong>
 
                 <p>
                     R$ 15,00 cada
@@ -448,7 +485,6 @@
         </div>
 
 
-
         <div class="info-card">
 
             <div class="info-icon">
@@ -457,7 +493,9 @@
 
             <div>
 
-                <strong>DESTINO</strong>
+                <strong>
+                    DESTINO
+                </strong>
 
                 <p>
                     Reforma da igreja
@@ -467,9 +505,7 @@
 
         </div>
 
-
     </section>
-
 
 
     <section class="address">
@@ -492,9 +528,7 @@
 
     </section>
 
-
 </main>
-
 
 
 <footer>
@@ -514,13 +548,8 @@
 </footer>
 
 
-
-<script src="script.js"></script>
+<script src="./script.js"></script>
 
 </body>
-
 </html>
-
-<!-- atualização do site -->
-
 
